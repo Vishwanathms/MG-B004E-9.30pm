@@ -1,0 +1,43 @@
+{
+   "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "location1": {
+        "type": "string",
+        "defaultValue": "East US",
+        "allowedValues": ["East US", "West US"]
+      }
+   },
+   "resources": [
+     {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2020-06-01",
+      "name": "vnet01",
+      "location": "[parameters('location1')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "10.10.0.0/16"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "Subnet01",
+            "properties": {
+              "addressPrefix": "10.10.1.0/24"
+            }
+          },
+          {
+            "name": "Subnet02",
+            "properties": {
+              "addressPrefix": "10.10.2.0/24"
+            }
+          }
+        ]
+      }
+    }
+
+
+   ]
+
+}

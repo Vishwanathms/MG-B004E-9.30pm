@@ -1,0 +1,5 @@
+
+New-AzResourceGroupDeployment -ResourceGroupName rg01 -TemplateFile "ex02-vnet2.json" -TemplateParameterFile "ex02-param.json"
+
+
+ Remove-AzResource -ResourceGroupName rg01 -ResourceName "vnet01" -ResourceType "Microsoft.Network/virtualNetworks" -Force
